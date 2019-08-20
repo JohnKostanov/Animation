@@ -73,9 +73,10 @@ class ViewController: UIViewController {
             let scaleTransform = CGAffineTransform(scaleX: 2, y: 2)
             let roteteTransform = CGAffineTransform(rotationAngle: .pi)
             let translateTransfarm = CGAffineTransform(translationX: 200, y: 200)
+            let comboTransform = scaleTransform.concatenating(roteteTransform).concatenating(translateTransfarm)
             
             UIView.animate(withDuration: 3) {
-                self.subview.transform = scaleTransform
+                self.subview.transform = comboTransform
             }
             
         default:
