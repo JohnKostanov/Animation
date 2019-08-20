@@ -9,10 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let frame = CGRect(x: 100, y: 100, width: 100, height: 100)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let subview = UIView(frame: frame)
+        subview.backgroundColor = .purple
+        view.addSubview(subview)
     }
 
 
