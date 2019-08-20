@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     let initialFrame = CGRect(x: 100, y: 100, width: 100, height: 100)
+    let newFrame = CGRect(x: 150, y: 150, width: 200, height: 200)
     var subview: UIView!
     var touchCounter = 0
 
@@ -35,12 +36,28 @@ class ViewController: UIViewController {
         case 2:
             UIView.animate(withDuration: 1) {
                 self.subview.backgroundColor  = .purple
-                self.subview.frame = CGRect(x: 150, y: 150, width: 200, height: 200)
+                self.subview.frame = self.newFrame
             }
         case 3:
-            UIView.animate(withDuration: 3) {
+            UIView.animate(withDuration: 1) {
                 self.subview.frame  = self.initialFrame
             }
+        case 4:
+            UIView.animate(withDuration: 0.5, animations: {
+                self.subview.backgroundColor  = .orange
+                self.subview.frame = self.newFrame
+            }) { _ in
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.subview.backgroundColor  = .purple
+                    self.subview.frame = self.initialFrame
+                })
+            }
+        case 5:
+            UIView.animate(withDuration: 3, delay: 1, options: [.autoreverse, .repeat], animations: {
+                self.subview.backgroundColor  = .orange
+                self.subview.frame = self.newFrame
+            })
+
         default:
             touchCounter = 0
             
