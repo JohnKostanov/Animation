@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     let initialFrame = CGRect(x: 100, y: 100, width: 100, height: 100)
     let label = UILabel(frame: CGRect(x: 50, y: 50, width: 50, height: 50))
     let newFrame = CGRect(x: 150, y: 150, width: 200, height: 200)
+    var imageView: UIImageView!
     var subview: UIView!
     var touchCounter = 0 {
         didSet {
@@ -30,6 +31,13 @@ class ViewController: UIViewController {
         label.text = "0"
         label.font = UIFont.systemFont(ofSize: 25)
         view.addSubview(label)
+        
+        imageView = UIImageView(image: UIImage(named: "image"))
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        imageView.frame = CGRect(x: 10, y: 300, width: 100, height: 100)
+        view.addSubview(imageView)
+        
         
     }
     
